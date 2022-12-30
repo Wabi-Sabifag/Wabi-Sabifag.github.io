@@ -10,7 +10,7 @@ public/
 /.idea
 .idea
 .deploy_git*/
-themes/butterfly/.git
+#themes/butterfly/.git
 
 # Compiled class file
 *.class
