@@ -29,9 +29,10 @@ menu:
     戏剧: /mask/ || fas fa-balance-scale 
     建筑: /city/ || fas fa-city
     电影: /movies/ || fas fa-film
-    游戏: /music/ || fas fa-music
     体育: /sport/ || fas fa-basketball
     动漫: /hospital/ || fa fa-star
+    游戏: /game/ || fa fa-game
+
   其他||fas fa-list||hide:
     其他信息: /link/ || fas fa-compass
     --关于--: /about/ || fas fa-paper-plane
@@ -454,7 +455,7 @@ footer:
   owner:
     enable: true
     since: 2022
-  custom_text: <div><a onclick="window.open('https://bilibili.com')"><img src=''>湖公网安备 </a></div><div>'理想主义 现实主义 实用主义'</div>
+  custom_text: <div><a onclick="window.open('https://bilibili.com')"><img src=''>湖公网安备 </a></div> <div>当内心一片虚无的时刻，我将心脏埋入这无尽的土壤</div>  <div>理想主义 现实主义 实用主义</div>
   copyright: true # Copyright of theme and framework
 
 # Analysis
@@ -654,7 +655,7 @@ subtitle:
   # Effect Speed Options (打字效果速度參數)
   startDelay: 300 # time before typing starts in milliseconds
   typeSpeed: 150 # type speed in milliseconds
-  backSpeed: 500 # backspacing speed in milliseconds
+  backSpeed: 100 # backspacing speed in milliseconds
   # loop (循環打字)
   loop: true
   # source 調用第三方服務
@@ -685,7 +686,7 @@ aside:
   hide: false
   button: true
   mobile: true # display on mobile
-  position: left # left or right
+  position: left    # left or right
   display:
     archive: true
     tag: true
@@ -696,11 +697,11 @@ aside:
     button:
       enable: true
       icon: fab fa-github
-      text: 关注
+      text: 我的GitHub
       link: https://github.com/Wabi-Sabifag
   card_announcement:
     enable: true
-    content: 我的博客
+    content: 世界上的事我不可一饮而尽，唯愿至死依然热爱而真切的活着、目睹经途的千万。
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
