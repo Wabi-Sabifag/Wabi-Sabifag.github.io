@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>JavaWeb 基础 | 当你抬头仰望星辰时，月辉亲昵双颊</title><meta name="author" content="Wabi-Sabifag"><meta name="copyright" content="Wabi-Sabifag"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1.JSP标签1.java 变量转 jsp&lt;&#x2F;pre&gt;1.java 变量转 jsp&lt;p&gt;&lt;&#x2F;p&gt;&lt;p&gt;&lt;&#x2F;p&gt;&lt;pre code_snippet_id&#x3D;&quot;1800145&quot; snippet_file_name&#x3D;&quot;blog_20160801_2_2452946&quot; name&#x3D;&quot;code&quot; class&#x3D;&quot;html&quot;&gt;&lt;% Str">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb 基础">
+<meta property="og:url" content="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="当你抬头仰望星辰时，月辉亲昵双颊">
+<meta property="og:description" content="1.JSP标签1.java 变量转 jsp&lt;&#x2F;pre&gt;1.java 变量转 jsp&lt;p&gt;&lt;&#x2F;p&gt;&lt;p&gt;&lt;&#x2F;p&gt;&lt;pre code_snippet_id&#x3D;&quot;1800145&quot; snippet_file_name&#x3D;&quot;blog_20160801_2_2452946&quot; name&#x3D;&quot;code&quot; class&#x3D;&quot;html&quot;&gt;&lt;% Str">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071">
+<meta property="article:published_time" content="2023-01-02T10:49:46.000Z">
+<meta property="article:modified_time" content="2023-01-05T07:56:16.533Z">
+<meta property="article:author" content="Wabi-Sabifag">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="JavaWeb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071"><link rel="shortcut icon" href="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071"><link rel="canonical" href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":730,"position":"top","messagePrev":"该版本已经是","messageNext":"天前的内容，请你仔细辨别版本和其他问题😉"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaWeb 基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-05 15:56:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="当你抬头仰望星辰时，月辉亲昵双颊" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">当你抬头仰望星辰时，月辉亲昵双颊</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaWeb 基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-02T10:49:46.000Z" title="发表于 2023-01-02 18:49:46">2023-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-05T07:56:16.533Z" title="更新于 2023-01-05 15:56:16">2023-01-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaWeb/">JavaWeb</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaWeb/%E5%9F%BA%E7%A1%80/">基础</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-JSP标签"><a href="#1-JSP标签" class="headerlink" title="1.JSP标签"></a>1.JSP标签</h1><h3 id="1-java-变量转-jsp"><a href="#1-java-变量转-jsp" class="headerlink" title="1.java 变量转 jsp"></a>1.java 变量转 jsp</h3><pre class="line-numbers language-none"><code class="language-none">&lt;/pre&gt;1.java 变量转 jsp&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;pre code_snippet_id="1800145" snippet_file_name="blog_20160801_2_2452946" name="code" class="html"&gt;&lt;% String value = request.getParameter("key");%&gt;  
+&lt;label&gt;&lt;%=value %&gt;&lt;/label&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2-jsp-变量转-js"><a href="#2-jsp-变量转-js" class="headerlink" title="2.jsp 变量转 js"></a>2.jsp 变量转 js</h3><pre class="line-numbers language-none"><code class="language-none">&lt;input type="text" name="firstname"&gt;test&lt;/input&gt;  
+&lt;script&gt;  
+var test = document.getElementById("firstname");  
+&lt;/script&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-js-转-Java"><a href="#3-js-转-Java" class="headerlink" title="3.js 转 Java"></a>3.js 转 Java</h3><pre class="line-numbers language-none"><code class="language-none">//虚拟表单提交  
+var temp = document.createElement("form");  
+temp.action = URL;//提交的地址  
+temp.method = "post";//也可指定为get  
+temp.style.display = "none";  
+var opt = document.createElement("textarea");  
+opt.name = key;  
+opt.value = value;  
+temp.appendChild(opt);  
+document.body.appendChild(temp);  
+temp.submit();  
+  
+//java 代码  
+  
+String var = request.getParameter("key");//此时var的值就是value  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-jsp转Java"><a href="#4-jsp转Java" class="headerlink" title="4.jsp转Java"></a>4.jsp转Java</h3><pre class="line-numbers language-none"><code class="language-none">String var = request.getParameter("key");//jsp表单提交了，就可以从request中获取。也可以虚拟表单提交。  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="5-js转jsp"><a href="#5-js转jsp" class="headerlink" title="5.js转jsp"></a>5.js转jsp</h3><pre class="line-numbers language-none"><code class="language-none">var test = "test";  
+document.getElementById("demo").innerHTML=test;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="6-java-转-js"><a href="#6-java-转-js" class="headerlink" title="6.java 转 js"></a>6.java 转 js</h3><pre class="line-numbers language-none"><code class="language-none">&lt;% String temp = request.getParameter("key");%&gt;  
+&lt;label name="test" hidden="hidden"&gt;&lt;%=temp %&gt;&lt;/label&gt;  
+&lt;script&gt;  
+var temp = document.createElement("test");  
+&lt;/script&gt;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="2-JSP内置对象"><a href="#2-JSP内置对象" class="headerlink" title="2.JSP内置对象"></a>2.JSP内置对象</h1><h3 id="JSP提供9个内置对象"><a href="#JSP提供9个内置对象" class="headerlink" title="JSP提供9个内置对象:"></a>JSP提供9个内置对象:</h3><pre><code> 对象名称         	衍生类     					功能简述	
+</code></pre>
+<p>(1)request		Javax.servelet.ServletRequest.HttpServletRequest 	取得客户端与系统的信息		</p>
+<p>(2)response	Javax.servlet.Servlet Request.HTTP Servlet.Response	响应客户端信息</p>
+<p>(3)application	Javax,servlet.ServletContext			记录和处理上线者共享的数据</p>
+<p>(4)session		Javax.servlet.Http.Session			记录和处理上线者的个别数据</p>
+<p>(5)out		Javax.servlet.jsp.writer			控制数据输出的操作</p>
+<p>(6)config		Javax.servlet.servletConfig			取得JSP编译后Servlet信息</p>
+<p>(7)PageContext	Javax.servlet.jsp.PageContext			存储和处理系统运行时的各种信息</p>
+<p>(8)page		Javax.lang.Object				代表目前的这个JSP网页对象</p>
+<p>(9)exception	Javax.lang.Throwable			异常处理机制</p>
+<h3 id="内置对象生命周期"><a href="#内置对象生命周期" class="headerlink" title="内置对象生命周期"></a>内置对象生命周期</h3><p>  application &gt; session &gt; page &gt; request</p>
+<h3 id="Request内置对象"><a href="#Request内置对象" class="headerlink" title="Request内置对象:"></a>Request内置对象:</h3><h4 id="一-Request内置对象的常用方法"><a href="#一-Request内置对象的常用方法" class="headerlink" title="一:Request内置对象的常用方法"></a>一:Request内置对象的常用方法</h4><pre><code>    方法				                               说明
+     (1)  getAttribute( String name)	       返回 name 所指的值
+     (2) setAttribute( String name , Object obj)  设定name所指定的属性为 obj
+     (3) removeAttribute( String name)	       删除name所指定的属性
+     (4) getAttributeNames()		       返回request对象所有的属性名称集合
+     (5) getParameter( String name)	       从客户端获取name所指定的参数
+     (6) getParameter Names()		       从客户端获取所有参数名称
+     (7) getParameterValues( String name)	       从客户端获取所指定参数的所有值
+     (8) setCharacterEncoding( String encoding)设定请求正文中所使用的字符编码(只支持post提交的数据)
+</code></pre>
+<h5 id="Request内置对象应用实例"><a href="#Request内置对象应用实例" class="headerlink" title="Request内置对象应用实例"></a>Request内置对象应用实例</h5><pre class="line-numbers language-none"><code class="language-none">       &lt;% 
+Enumeration enu = request.getParameterNames(); //page标签导入 import="Java.util.*" 
+while(enu.hasMoreElements()){
+ String parameterName = (String) enu.nextElement();
+ String parameterValue = request.getParameter(parameterName);
+ out.print("参数名称:"+parameterName);
+ out.print("\t参数内容:"+parameterValue);
+}
+   %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二-Response内置对象"><a href="#二-Response内置对象" class="headerlink" title="二:Response内置对象"></a>二:Response内置对象</h3><pre><code>方法				说明
+    (1) setContentType( String type)	       动态响应content Type属性
+    (2) setHeader( String name,String value)     设置HTTP应答报文的首部字段和值及自动更新
+    (3) setRedirect( String redirectURL)	       将客户端重定向到指定URL 
+    (4) setStatus( int n)		       设定HTTP返回的状态值
+    (5) addCookie( Cookie cookie)	       添加一个Cookie对象 
+</code></pre>
+<h1 id="3-JSP语法"><a href="#3-JSP语法" class="headerlink" title="3.JSP语法"></a>3.JSP语法</h1><h3 id="一、JSP脚本标记"><a href="#一、JSP脚本标记" class="headerlink" title="一、JSP脚本标记"></a>一、JSP脚本标记</h3><h4 id="1-脚本段"><a href="#1-脚本段" class="headerlink" title="1.脚本段"></a>1.脚本段</h4><pre><code>    &lt;% Java程序段 %&gt;
+</code></pre>
+<h4 id="2-JSP声明"><a href="#2-JSP声明" class="headerlink" title="2.JSP声明"></a>2.JSP声明</h4><pre><code>    &lt;%! 声明1;声明2; %&gt;
+    PS: 1.可以在 &lt;%@ page %&gt;直接使用已经声明的变量和方法
+        2.多个页面声明，写成单独的一个文件用 
+            &lt;%@ include %&gt;/&lt;jsp:include&gt;
+</code></pre>
+<h4 id="3-JSP表达式"><a href="#3-JSP表达式" class="headerlink" title="3.JSP表达式"></a>3.JSP表达式</h4><pre><code>    &lt;%= 变量/表达式 %&gt;
+</code></pre>
+<h4 id="4-JSP注释"><a href="#4-JSP注释" class="headerlink" title="4.JSP注释"></a>4.JSP注释</h4><pre><code>    &lt;%--  --%&gt;
+</code></pre>
+<h3 id="二、JSP指令标记"><a href="#二、JSP指令标记" class="headerlink" title="二、JSP指令标记"></a>二、JSP指令标记</h3><h4 id="1-page页面指令标记"><a href="#1-page页面指令标记" class="headerlink" title="1.page页面指令标记:"></a>1.page页面指令标记:</h4><pre><code>　　&lt;%@ page 属性1="value1" 属性2="value2“ %&gt;
+    属性（每次一个属性）:
+       (1)language: 脚本语言 Java
+        (2)import  在程序中导入的类和包
+        (3)session: true / false  设定HTTP Session
+        (4)autoFlash: true / false  设置缓冲区填满时 缓冲自动刷新
+        (5)isThreadSafe: true / false  设置JSP　页面支持多线程
+        (6)isErrorPage: false / true 　　指定当前页面作为另一页面的错误处理页码
+        (7)errorPage　　指定当前网页的错误处理页码的ＵＲＬ
+        (8)contentType: text/html;charset=gb2312
+                        页面响应的MIME类型；指定字符编码
+</code></pre>
+<h4 id="２-include静态包含指令标记："><a href="#２-include静态包含指令标记：" class="headerlink" title="２.include静态包含指令标记："></a>２.include静态包含指令标记：</h4><pre><code>    &lt;%@　include file＝＂相对位置＂%&gt;
+    相同文件夹下   建议以 .jspf(jps fragment)
+(PS: 由于键值对,除import,pageEncoding,不可以引入其他相同属性)
+</code></pre>
+<h4 id="3-taglib指令标记"><a href="#3-taglib指令标记" class="headerlink" title="3.taglib指令标记"></a>3.taglib指令标记</h4><pre><code>    &lt;%@taglib  url="标签库url"  prefix="自定义标签前缀" %&gt;
+    &lt;publi:loop&gt;
+        ...
+    &lt;/publi:loop&gt;
+</code></pre>
+<h3 id="三、JSP动作标记"><a href="#三、JSP动作标记" class="headerlink" title="三、JSP动作标记"></a>三、JSP动作标记</h3><h4 id="1-jsp-include-传参详列-Page-25"><a href="#1-jsp-include-传参详列-Page-25" class="headerlink" title="1.jsp:include:(传参详列:Page 25)"></a>1.<a href="jsp:include" rel="external nofollow noreferrer">jsp:include</a>:(传参详列:Page 25)</h4><pre><code>    不带参数：&lt;jsp:include page="相对url" flush="true/false"/&gt;
+       带参数：&lt;jsp:include page="相对url" flush="true/false"/&gt;
+                          &lt;jsp:param name="属性名" value="属性值"/&gt;    // 传递多个参数给动态文件
+                         &lt;jsp:param...&gt;
+                   &lt;/jsp:include&gt;
+        
+</code></pre>
+<h4 id="2-jsp-forward-服务器端跳转-浏览器地址栏不做变化"><a href="#2-jsp-forward-服务器端跳转-浏览器地址栏不做变化" class="headerlink" title="2.jsp:forward:(服务器端跳转,浏览器地址栏不做变化)"></a>2.<a href="jsp:forward" rel="external nofollow noreferrer">jsp:forward</a>:(服务器端跳转,浏览器地址栏不做变化)</h4><pre><code>     不带参数:  &lt;jsp:forward page="URL"&gt;
+        带参数:   &lt;jsp:forward page="URL"&gt;
+     &lt;jsp:param name="属性名" value="属性名"/&gt;
+      ...
+           &lt;/jsp:forward&gt;
+</code></pre>
+<h4 id="3-jsp-param"><a href="#3-jsp-param" class="headerlink" title="3.jsp:param:"></a>3.<a href="jsp:param" rel="external nofollow noreferrer">jsp:param</a>:</h4><pre><code>      &lt;jsp:aram name="参数名"  value="参数值"/&lt;%=表达式%&gt;  /&gt;
+传递的参数通过request.getParameter("属性名")获取参数的值.
+单独使用&lt;jsp:param&gt;没有意义
+</code></pre>
+<h4 id="4-jsp-plugin"><a href="#4-jsp-plugin" class="headerlink" title="4.jsp:plugin:"></a>4.<a href="jsp:plugin" rel="external nofollow noreferrer">jsp:plugin</a>:</h4><pre><code>&lt;jsp:plugin&gt;动作用于jsp网页加载Java Applet 或 JavaBean 程序组件,
+       与HTML的&lt;Applet&gt;和&lt;Object&gt;标签有类似的功能.
+常用属性表:
+       (1)  type:加载Java程序类型,可设置值Applet,Bean
+       (2)  code:加载Java程序编译后的类名称, showpic.class
+       (3)  codebase:  编译后Java程序类所在的目录,可设置绝对值路径或相对路径.  默认执行当前网页的目录默认值.
+       (4)  name:  用来加载Java Applet 和 JavaBean程序设置一个用以识别的名称.
+       (5)   align:  设置加载的程序在窗口的对齐方式,可设置由bottom,top,middle,left,right.
+       (6)  height:  加载程序在窗口中显示的高度
+       (7)  width:  加载程序在窗口中显示的宽度
+       (8)  hspace:  加载程序的显示器和网页其他内容的水平间距
+       (9)  vspace:  加载程序的显示区与网页其他内容的垂直距离
+       (10)  &lt;jsp:params&gt;:  将参数传递给加载程序,必须在&lt;jsp:params&gt;  &lt;/jsp/params&gt;中使用 &lt;jsp:param&gt; 来设置.
+</code></pre>
+<h4 id="5-jsp-userBean-jsp-setProperty-和-jsp-getProperty动作标记"><a href="#5-jsp-userBean-jsp-setProperty-和-jsp-getProperty动作标记" class="headerlink" title="5.jsp:userBean jsp:setProperty 和 jsp:getProperty动作标记"></a>5.<a href="jsp:userBean" rel="external nofollow noreferrer">jsp:userBean</a> <a href="jsp:setProperty" rel="external nofollow noreferrer">jsp:setProperty</a> 和 <a href="jsp:getProperty" rel="external nofollow noreferrer">jsp:getProperty</a>动作标记</h4><pre><code>&lt;jsp:userBean&gt;动作标记用来加载JSP页面中使用的JavaBean
+    &lt;jsp:userBean id="Java Bean实列名称" scope"page / request / session / application"  class="package.class"&gt;
+    属性:
+            (1) id:  JavaBean实列名称
+            (2) scope:  指定该Bean变量的有效范围.
+            (3) class:  导入的Java包 例如:需求时间 导入 Java.util.Date
+
+       &lt;jsp:setProperty&gt;动作标记用于设置已经实列化的Bean对象属性
+</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;jsp:setProperty
+ name="JavaBean实列名称"
+ { 
+ property="*"  /
+ property="属性名"  [param="参数"] /
+ property="属性名'  value"{String&lt;%=表达式%&gt;"
+ }
+/&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>(PS:  &lt;jsp:setProerty&gt;中 name值 必须和 &lt;jsp:useBean&gt;中 id值相同, 且大小写敏感.
+
+&lt;jsp:getProerty&gt;动作标记可获得Bean的著性质,用于页面中显示.
+    &lt;jsp:getProerty name="JavaBean实列名称" property="属性名"/&gt;
+</code></pre>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80/">基础</a><a class="post-meta__tags" href="/tags/JavaWeb/">JavaWeb</a></div><div class="post_share"><div class="social-share" data-image="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><a href="/./img/Wabi-Sabifag.jpg" target="_blank"><img class="post-qr-code-img" src="/./img/Wabi-Sabifag.jpg" alt="BiliBili"/></a><div class="post-qr-code-desc">BiliBili</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/"><img class="prev-cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">IOS配置</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JavaScript 基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/02/BigData-HDFS%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="Linux基础命令"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">Linux基础命令</div></div></a></div><div><a href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">IOS配置</div></div></a></div><div><a href="/2023/01/02/BigData-%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BC%96%E7%A8%8B/" title="BigData-词频统计编程"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">BigData-词频统计编程</div></div></a></div><div><a href="/2023/01/02/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="Linux基础命令"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">Linux基础命令</div></div></a></div><div><a href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">JavaScript 基础</div></div></a></div><div><a href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/" title="jQuery 基础"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-05</div><div class="title">jQuery 基础</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="author-info__name">Wabi-Sabifag</div><div class="author-info__description">当残风不再，当石烂海竭，我迟迟归场</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" href="https://github.com/Wabi-Sabifag"><i class="fab fa-github"></i><span>我的GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wabi-Sabifag" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_61109834" rel="external nofollow noreferrer" target="_blank" title="CSDN"><i class="fab fa-contao"></i></a><a class="social-icon" href="https://space.bilibili.com/364309102" rel="external nofollow noreferrer" target="_blank" title="BiliBli"><i class="fa fa-bold"></i></a><a class="social-icon" href="mailto:1109388794@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">世界上的事我不可一饮而尽，唯愿至死依然热爱而真切的活着、目睹经途的千万。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-JSP%E6%A0%87%E7%AD%BE"><span class="toc-text">1.JSP标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-java-%E5%8F%98%E9%87%8F%E8%BD%AC-jsp"><span class="toc-text">1.java 变量转 jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-jsp-%E5%8F%98%E9%87%8F%E8%BD%AC-js"><span class="toc-text">2.jsp 变量转 js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-js-%E8%BD%AC-Java"><span class="toc-text">3.js 转 Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-jsp%E8%BD%ACJava"><span class="toc-text">4.jsp转Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-js%E8%BD%ACjsp"><span class="toc-text">5.js转jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-java-%E8%BD%AC-js"><span class="toc-text">6.java 转 js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">2.JSP内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSP%E6%8F%90%E4%BE%9B9%E4%B8%AA%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">JSP提供9个内置对象:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">内置对象生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Request%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">Request内置对象:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-Request%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">一:Request内置对象的常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Request%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">Request内置对象应用实例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Response%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">二:Response内置对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-JSP%E8%AF%AD%E6%B3%95"><span class="toc-text">3.JSP语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81JSP%E8%84%9A%E6%9C%AC%E6%A0%87%E8%AE%B0"><span class="toc-text">一、JSP脚本标记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%84%9A%E6%9C%AC%E6%AE%B5"><span class="toc-text">1.脚本段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-JSP%E5%A3%B0%E6%98%8E"><span class="toc-text">2.JSP声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-JSP%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">3.JSP表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-JSP%E6%B3%A8%E9%87%8A"><span class="toc-text">4.JSP注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81JSP%E6%8C%87%E4%BB%A4%E6%A0%87%E8%AE%B0"><span class="toc-text">二、JSP指令标记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-page%E9%A1%B5%E9%9D%A2%E6%8C%87%E4%BB%A4%E6%A0%87%E8%AE%B0"><span class="toc-text">1.page页面指令标记:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%92-include%E9%9D%99%E6%80%81%E5%8C%85%E5%90%AB%E6%8C%87%E4%BB%A4%E6%A0%87%E8%AE%B0%EF%BC%9A"><span class="toc-text">２.include静态包含指令标记：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-taglib%E6%8C%87%E4%BB%A4%E6%A0%87%E8%AE%B0"><span class="toc-text">3.taglib指令标记</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81JSP%E5%8A%A8%E4%BD%9C%E6%A0%87%E8%AE%B0"><span class="toc-text">三、JSP动作标记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-jsp-include-%E4%BC%A0%E5%8F%82%E8%AF%A6%E5%88%97-Page-25"><span class="toc-text">1.jsp:include:(传参详列:Page 25)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-jsp-forward-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%B3%E8%BD%AC-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E4%B8%8D%E5%81%9A%E5%8F%98%E5%8C%96"><span class="toc-text">2.jsp:forward:(服务器端跳转,浏览器地址栏不做变化)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-jsp-param"><span class="toc-text">3.jsp:param:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-jsp-plugin"><span class="toc-text">4.jsp:plugin:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-jsp-userBean-jsp-setProperty-%E5%92%8C-jsp-getProperty%E5%8A%A8%E4%BD%9C%E6%A0%87%E8%AE%B0"><span class="toc-text">5.jsp:userBean jsp:setProperty 和 jsp:getProperty动作标记</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/" title="jQuery 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jQuery 基础"/></a><div class="content"><a class="title" href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/" title="jQuery 基础">jQuery 基础</a><time datetime="2023-01-05T15:36:04.000Z" title="发表于 2023-01-05 23:36:04">2023-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IOS配置"/></a><div class="content"><a class="title" href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置">IOS配置</a><time datetime="2023-01-02T11:28:15.000Z" title="发表于 2023-01-02 19:28:15">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/" title="JavaWeb 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaWeb 基础"/></a><div class="content"><a class="title" href="/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/" title="JavaWeb 基础">JavaWeb 基础</a><time datetime="2023-01-02T10:49:46.000Z" title="发表于 2023-01-02 18:49:46">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript 基础"/></a><div class="content"><a class="title" href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础">JavaScript 基础</a><time datetime="2023-01-02T08:12:58.000Z" title="发表于 2023-01-02 16:12:58">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/BigData-%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BC%96%E7%A8%8B/" title="BigData-词频统计编程"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BigData-词频统计编程"/></a><div class="content"><a class="title" href="/2023/01/02/BigData-%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BC%96%E7%A8%8B/" title="BigData-词频统计编程">BigData-词频统计编程</a><time datetime="2023-01-02T07:07:10.000Z" title="发表于 2023-01-02 15:07:10">2023-01-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Wabi-Sabifag</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><div><a onclick="window.open('https://bilibili.com')"><img src=''>湖公网安备 </a></div> <div>当内心一片虚无的时刻，我将心脏埋入这无尽的土壤</div>  <div>理想主义 现实主义 实用主义</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" date-type="playlist" data-fixed="true" data-autoplay="true"></div><link rel="stylesheet" href="css/style.css"><script src="/js/sakura.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
