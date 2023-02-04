@@ -1,0 +1,568 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python网页获取 | 当你抬头仰望星辰时，月辉亲昵双颊</title><meta name="author" content="Wabi-Sabifag"><meta name="copyright" content="Wabi-Sabifag"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Python 的网络资源获取1.准备工作编辑器：PyCharm库：requests BeautifulSoup4### 1.requests 网页下载库      requests.get&#x2F;post(url,params,data,headers,timeout,verify,allow_redirects,cookies)  url：下载的网页目标url params：字典形式，设置URL后面的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python网页获取">
+<meta property="og:url" content="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/index.html">
+<meta property="og:site_name" content="当你抬头仰望星辰时，月辉亲昵双颊">
+<meta property="og:description" content="Python 的网络资源获取1.准备工作编辑器：PyCharm库：requests BeautifulSoup4### 1.requests 网页下载库      requests.get&#x2F;post(url,params,data,headers,timeout,verify,allow_redirects,cookies)  url：下载的网页目标url params：字典形式，设置URL后面的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071">
+<meta property="article:published_time" content="2023-01-24T11:21:06.000Z">
+<meta property="article:modified_time" content="2023-01-31T15:50:12.851Z">
+<meta property="article:author" content="Wabi-Sabifag">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071"><link rel="shortcut icon" href="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071"><link rel="canonical" href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":730,"position":"top","messagePrev":"该版本已经是","messageNext":"天前的内容，请你仔细辨别版本和其他问题😉"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python网页获取',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-31 23:50:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="当你抬头仰望星辰时，月辉亲昵双颊" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cobu.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">当你抬头仰望星辰时，月辉亲昵双颊</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python网页获取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-24T11:21:06.000Z" title="发表于 2023-01-24 19:21:06">2023-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-31T15:50:12.851Z" title="更新于 2023-01-31 23:50:12">2023-01-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">基础命令</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Python-的网络资源获取"><a href="#Python-的网络资源获取" class="headerlink" title="Python 的网络资源获取"></a>Python 的网络资源获取</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p>编辑器：PyCharm<br>库：requests BeautifulSoup4<br>###</p>
+<pre class="line-numbers language-none"><code class="language-none">1.requests 网页下载库
+
+    requests.get/post(url,params,data,headers,timeout,verify,allow_redirects,cookies)
+
+url：下载的网页目标url
+params：字典形式，设置URL后面的参数，比如？id=123&amp;name=bilibili
+data：字典或字符串，一般用于POST方法时提交数据
+headers：设置user-agent，refer请求头
+timeout：超时时间，s
+verify:True/False，是否进行HTTPS证书验证
+allow_redirects:True/False是否让requests做重定向处理
+cookies:附带本地cookies数据
+
+2.接收response响应
+
+    r = requests.get/post(url)
+
+    r.status_code       网页状态
+
+    r.encoding      设置编码规则
+
+    r.text      网页内容
+
+    r.headers       
+
+    r.url
+
+    r.content       字节形式返回
+
+    r.cookies       导入本地cookies
+
+3.网页解析器 
+
+ 1.创建BeautifulSoup对象
+    from bs4 import BeautifulSoup
+    #根据HTML网页字符串创建 BeautifulSoup 对象
+    soup = beautifulSoup(
+        html_doc,                   
+            #HTML文档字符串
+        'html.parser',              
+            #HTML解析器
+        from_encoding='utf8         
+            #HTML文档编码
+    )
+ 2.搜索节点 (find_all,find)
+    find_all(name,attrs,string)
+    比如：
+        soup.find_all('div',class_='abc,string'Python',href='/view/123.html')
+            #查找所有为 div标签 ，class为abc，文字为Python，连接符合/view/123.html的节点
+ 3.访问节点信息
+    node.name   #标签名字
+    node['href']  # 元素属性
+    node.get_text()     #查找到的节点的链接文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-网页"><a href="#2-网页" class="headerlink" title="2.网页"></a>2.网页</h2><pre class="line-numbers language-none"><code class="language-none">import requests
+from bs4 import BeautifulSoup
+import selectors
+class UrlManager():
+    '''
+    Url管理器
+    '''
+    def __init__(self):
+        self.new_urls = set()
+        self.old_urls = set()
+
+    def add_new_url(self,url):
+        if url is None or len(url) == 0:
+            return
+        if url in self.new_urls or url in self.old_urls:
+            return
+        self.new_urls.add(url)
+
+    def add_new_urls(self,urls):
+        if urls is None or len(urls) == 0:
+            return
+        for url in urls:
+            self.add_new_url(url)
+
+    def get_url(self):
+        if self.has_new_url():
+            url = self.new_urls.pop()
+            self.old_urls.add(url)
+            return url
+        else:
+            return None
+
+    def has_new_url(self):
+        return len(self.new_urls) &gt; 0
+
+#---------------------------------------------
+
+if __name__ == "__main__":
+    url_manager = UrlManager()
+    url_manager.add_new_url("url1")
+    url_manager.add_new_url("url2")
+    url_manager.add_new_url("url3")
+    print(url_manager.new_urls,url_manager.old_urls)
+
+    print("#"*30)
+
+    new_url = url_manager.get_url()
+    print(url_manager.new_urls, url_manager.old_urls)
+
+    print("#" * 30)
+
+    new_url = url_manager.get_url()
+    print(url_manager.new_urls, url_manager.old_urls)
+
+    print("-"*30)
+
+    print(url_manager.has_new_url())
+    print(new_url)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-获取页面文本内容"><a href="#3-获取页面文本内容" class="headerlink" title="3.获取页面文本内容"></a>3.获取页面文本内容</h2><pre class="line-numbers language-none"><code class="language-none">import requests
+from bs4 import BeautifulSoup
+import selectors
+
+url = "https://www.wabisabifag.top/"
+r = requests.get(url)
+print(f'{r.status_code}\n '
+      # f'{r.headers}\n '
+      f'{r.encoding}\n')
+for (index,value) in enumerate(r.text):
+    print(value,end='')
+    if 0 == index%120: print()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-获取网页标签内容"><a href="#4-获取网页标签内容" class="headerlink" title="4.获取网页标签内容"></a>4.获取网页标签内容</h2><pre class="line-numbers language-none"><code class="language-none">import  requests
+from bs4 import  BeautifulSoup
+
+def get_novel_chapters():
+    root_url = "http://www.89wxw.cn/0_9/"      # 网页无效了
+    r = requests.get(root_url)
+    r.encoding="gbk"
+    soup = BeautifulSoup(r.text,"html.parser")
+    for dd in soup.find_all("dd"):
+        link = dd.find("a")
+        if not link:
+            continue
+
+        print(link)
+
+get_novel_chapters()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5.正则表达式"></a>5.正则表达式</h2><pre class="line-numbers language-none"><code class="language-none">url1 = "http://www.bilibili.com"
+url2 = "http://www.bilibili.com/123.html#comments"
+url3 = "http://www.baidu.com"
+import  re
+pattern = r'^http://www.bilibili.com$'
+print(re.match(pattern,url1)) #ok
+print(re.match(pattern,url2))
+print(re.match(pattern,url3))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="6-验证网页是否有效并导入本地"><a href="#6-验证网页是否有效并导入本地" class="headerlink" title="6.验证网页是否有效并导入本地"></a>6.验证网页是否有效并导入本地</h2><pre class="line-numbers language-none"><code class="language-none">from utils import url_manager
+from bs4 import BeautifulSoup
+import requests
+import re
+
+root_url = "https://www.bilibili.com/"
+
+urls = url_manager.UrlManager()
+urls.add_new_url(root_url)
+
+fout = open("craw_all_pages.txt", "w")
+while urls.has_new_url():
+    curr_url = urls.get_url()
+    r = requests.get(curr_url, timeout=10)
+    if r.status_code!= 200:
+        print("error.retrun status_code is over 200", curr_url)
+        continue
+    soup = BeautifulSoup(r.text, "html.parser")
+    title = soup.title.string
+
+    fout.write("%s\t%s\n" % (curr_url, title))
+    fout.flush()
+    print("成功:%s,%s,%d" % (curr_url, title, len(urls.new_urls)))
+
+    links = soup.find_all("a")
+    for link in links:
+        href = link["href"]
+        pattern = r'^https://www.bilibili.com/\d+.html$'
+        if re.match(pattern, href):
+            urls.add_new_url()
+fout.close()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7-获取豆瓣页面网址"><a href="#7-获取豆瓣页面网址" class="headerlink" title="7.获取豆瓣页面网址"></a>7.获取豆瓣页面网址</h2><pre class="line-numbers language-none"><code class="language-none">from turtle import pd
+import requests
+from bs4 import BeautifulSoup
+import pprint
+import json
+import pdb
+
+# 构造分页数字列表
+page_indexs = range(0, 250, 25)
+list(page_indexs)
+
+
+def download_all_htmls():  # 获取HTML的page信息
+    htmls = []
+    for idx in page_indexs:
+        print(idx)
+        url = f"https://movie.douban.com/top250?start={idx}&amp;filter="
+        print("craw html:", url)
+        r = requests.get(url)
+        # if r.status_code != 200:
+        #     raise Exception("error")
+        htmls.append(r.text)
+    return htmls
+
+htmls = download_all_htmls()
+
+# 解析数据
+def parse_single_html(html):
+    soup = BeautifulSoup(html, "html.parser")
+    article_items = (
+        soup.find("div", class_="article")
+        .find("ol", class_="grid_view")
+        .find_all("div", class_="item")
+    )
+    datas = []
+    for article_item in article_items:
+        rank = article_item.find("div", class_="pic").find("em").get_text()
+        info = article_item.find("div", class_="info")
+        title = info.find("div", class_="hd").find("span", class_="title").get_text()
+        # print(title)
+        stars = (
+            info.find("div", class_="bd")
+            .find("div", class_="star")
+            .find_all("span")
+        )
+        rating_star = stars[0]["class"][0]
+        rating_num = stars[1].get_text()
+        comments = stars[3].get_text()
+
+        datas.append({
+            "rank": rank,
+            "title": title,
+            "rating_star": rating_star.replace("rating", "").replace("-t", ""),
+            "rating_num": rating_num,
+            "comments": comments.replace("评价人数:", "")
+        })
+    return datas
+
+pprint.pprint(parse_single_html(htmls[0]))
+
+all_datas = []
+for html in htmls:
+    all_datas.extend(parse_single_html((html)))
+
+print(all_datas)
+print(len(all_datas))
+
+
+#导入表格
+df =pd.DataFrame(all_datas)
+print(df)
+df.to_eccel("豆瓣电影TOP250.xlsx")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>31，59有报错没有修改，可能是获取标签问题，也可能是代码自生的错误。
+</code></pre>
+<p>报错：Traceback (most recent call last):<br>  File “C:\Users\WabiSabifag\PycharmProjects\web_crawler\douban_test\goline.py”, line 59, in <module><br>    pprint.pprint(parse_single_html(htmls[0]))<br>  File “C:\Users\WabiSabifag\PycharmProjects\web_crawler\douban_test\goline.py”, line 31, in parse_single_html<br>    soup.find(“div”, class_=”article”)<br>AttributeError: ‘NoneType’ object has no attribute ‘find’</module></p>
+<pre class="line-numbers language-none"><code class="language-none">#封装
+import requests
+from bs4 import BeautifulSoup
+import pprint
+import json
+
+from douban_test.goline import download_all_htmls,parse_single_html
+
+htmls = download_all_htmls()
+for i in  range(len(htmls[0])):
+    print(i)
+
+pprint.pprint(parse_single_html(htmls[0]))
+
+all_datas = []
+for html in htmls:
+    all_datas.extend(parse_single_html((html)))
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="8-网页图片获取"><a href="#8-网页图片获取" class="headerlink" title="8.网页图片获取"></a>8.网页图片获取</h2><pre class="line-numbers language-none"><code class="language-none">coding = 'utf-8'
+import requests
+from bs4 import BeautifulSoup
+import os
+url = "https://pic.netbian.com/4kmeinv/"
+
+def craw_html(url):
+    resp = requests.get(url)
+    resp.encoding = 'gbk'
+    print(f"获取网页状态:{resp.status_code}")
+    html = resp.text        #得到页面
+    return  html
+
+def parse_and_download(html):
+    soup = BeautifulSoup(html, "html.parser")
+    imgs = soup.find_all("img")
+    for img in imgs:
+        src = img['src']
+        if '/uploads/' not in src:
+            continue
+        src = f"https://pic.netbian.com{src}"
+
+        filename = os.path.basename(src)
+        with open(f"img/{filename}", "wb") as f:
+            resp_img = requests.get(src)
+            f.write(resp_img.content)
+
+# 如果页面有规律  循环获取页面
+urls = ["https://pic.netbian.com/4kmeinv/"]+[
+    f"https://pic.netbian.com/4kmeinv/index_{i}.html"
+    for i in range(2,4)]
+for url in urls:
+    html = craw_html(url)
+    parse_and_download(html)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="本地图片文件的重命名"><a href="#本地图片文件的重命名" class="headerlink" title="本地图片文件的重命名"></a>本地图片文件的重命名</h1><pre class="line-numbers language-none"><code class="language-none"># coding=utf-8
+import os
+path_name = os.path.join(os.getcwd(), r'C:\Users\11111\Desktop\1')
+'''
+ 获取图片所在文件夹的地址
+ 可修改为文件的相对路径，比如： 
+ path_name = D:\Documents\GitHub\my_OpenCV\models-master\research\my_data\myimages)
+'''
+num = 3323 # 图片命名的序号（从num开始）
+for item in os.listdir(path_name):#进入到文件夹内，对每个文件进行循环遍历
+    #re_name=str(num)+'.jpg'
+    re_name = '图片_'+str(num)+'.jpg' # 重命名图片文件的格式（从num开始）
+    os.rename(os.path.join(path_name,item),os.path.join(path_name,re_name))
+    num+=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io">Wabi-Sabifag</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/">https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io" target="_blank">当你抬头仰望星辰时，月辉亲昵双颊</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80/">基础</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><a href="/./img/Wabi-Sabifag.jpg" target="_blank"><img class="post-qr-code-img" src="/./img/Wabi-Sabifag.jpg" alt="BiliBili"/></a><div class="post-qr-code-desc">BiliBili</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">jQuery 基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/02/BigData-HDFS%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="Linux基础命令"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">Linux基础命令</div></div></a></div><div><a href="/2023/01/02/BigData-%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BC%96%E7%A8%8B/" title="BigData-词频统计编程"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">BigData-词频统计编程</div></div></a></div><div><a href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">IOS配置</div></div></a></div><div><a href="/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/" title="JavaWeb 基础"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">JavaWeb 基础</div></div></a></div><div><a href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">JavaScript 基础</div></div></a></div><div><a href="/2023/01/02/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="Linux基础命令"><img class="cover" src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">Linux基础命令</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="author-info__name">Wabi-Sabifag</div><div class="author-info__description">当残风不再，当石烂海竭，我迟迟归场</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/364309102"><i class="fab fa-github"></i><span>我的兴趣都在这里</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wabi-Sabifag" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_61109834" rel="external nofollow noreferrer" target="_blank" title="CSDN"><i class="fab fa-contao"></i></a><a class="social-icon" href="https://space.bilibili.com/364309102" rel="external nofollow noreferrer" target="_blank" title="BiliBli"><i class="fa fa-bold"></i></a><a class="social-icon" href="mailto:1109388794@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">世界上的事我不可一饮而尽，唯愿至死依然热爱而真切的活着、目睹经途的千万。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-%E7%9A%84%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E8%8E%B7%E5%8F%96"><span class="toc-text">Python 的网络资源获取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">1.准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BD%91%E9%A1%B5"><span class="toc-text">2.网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9"><span class="toc-text">3.获取页面文本内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5%E6%A0%87%E7%AD%BE%E5%86%85%E5%AE%B9"><span class="toc-text">4.获取网页标签内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">5.正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%AA%8C%E8%AF%81%E7%BD%91%E9%A1%B5%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E5%B9%B6%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0"><span class="toc-text">6.验证网页是否有效并导入本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%8E%B7%E5%8F%96%E8%B1%86%E7%93%A3%E9%A1%B5%E9%9D%A2%E7%BD%91%E5%9D%80"><span class="toc-text">7.获取豆瓣页面网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87%E8%8E%B7%E5%8F%96"><span class="toc-text">8.网页图片获取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-text">本地图片文件的重命名</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/" title="Python网页获取"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网页获取"/></a><div class="content"><a class="title" href="/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/" title="Python网页获取">Python网页获取</a><time datetime="2023-01-24T11:21:06.000Z" title="发表于 2023-01-24 19:21:06">2023-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/" title="jQuery 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jQuery 基础"/></a><div class="content"><a class="title" href="/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/" title="jQuery 基础">jQuery 基础</a><time datetime="2023-01-05T15:36:04.000Z" title="发表于 2023-01-05 23:36:04">2023-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IOS配置"/></a><div class="content"><a class="title" href="/2023/01/02/IOS%E9%85%8D%E7%BD%AE/" title="IOS配置">IOS配置</a><time datetime="2023-01-02T11:28:15.000Z" title="发表于 2023-01-02 19:28:15">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/" title="JavaWeb 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaWeb 基础"/></a><div class="content"><a class="title" href="/2023/01/02/JavaWeb-%E5%9F%BA%E7%A1%80/" title="JavaWeb 基础">JavaWeb 基础</a><time datetime="2023-01-02T10:49:46.000Z" title="发表于 2023-01-02 18:49:46">2023-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript 基础"/></a><div class="content"><a class="title" href="/2023/01/02/JavaScript-%E5%9F%BA%E7%A1%80/" title="JavaScript 基础">JavaScript 基础</a><time datetime="2023-01-02T08:12:58.000Z" title="发表于 2023-01-02 16:12:58">2023-01-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Wabi-Sabifag</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><div><a onclick="window.open('https://bilibili.com')"><img src=''>湖公网安备 </a></div> <div>当内心一片虚无的时刻，我将心脏埋入这无尽的土壤</div>  <div>理想主义 现实主义 实用主义</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" date-type="playlist" data-fixed="true" data-autoplay="true"></div><link rel="stylesheet" href="css/style.css"><script src="/js/sakura.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
