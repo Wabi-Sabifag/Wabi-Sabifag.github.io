@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>MockingBir</title>
+      <link href="/2023/02/06/MockingBir/"/>
+      <url>/2023/02/06/MockingBir/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="MockingBir的部署"><a href="#MockingBir的部署" class="headerlink" title="MockingBir的部署"></a>MockingBir的部署</h1><h6 id="开源作者：babysor"><a href="#开源作者：babysor" class="headerlink" title="开源作者：babysor"></a>开源作者：babysor</h6><p>操作系统：Win10</p><p>硬件：cpu</p><p>2.安装</p><blockquote><p>如果已经确认安装过，请忽略该步骤</p></blockquote><ul><li><p>获取<a href="https://github.com/babysor/MockingBird">GitHub开源代码库</a></p></li><li><p>安装Anacodna， Python 3.8 或更高，参考<a href="https://zhuanlan.zhihu.com/p/348120084">中文教程</a>，在Anaconda中创建并切换到独立虚拟环境后，进行以下步骤。</p></li><li><p>安装 PyTorch， 直接<a href="https://pytorch.org/get-started/locally/">官网下载</a>。</p></li></ul><blockquote><p>验证本步骤是否成功：在系统任意路径下运行python，进入交互式编程界面后输入&nbsp;<code>import torch;</code>, 回车，&nbsp;<code>torch.cuda.is_available()</code>, 回车。如果都是成功的话，可以进行下一步。</p></blockquote><p><img src="https://github.com/babysor/MockingBird/wiki/imgs/torch1.png" alt="torch1"></p><ul><li><p>安装 ffmpeg。 1）<a href="http://ffmpeg.org/download.html#build-windows">下载</a>&nbsp;选择点击打开链接Windows对应的版本下载 2）解压 ffmpeg-xxxx.zip 文件到指定目录； 3）将解压后的文件目录中 bin 目录（包含 ffmpeg.exe ）添加进 path 环境变量中； 4）进入 cmd，输入 ffmpeg -version，可验证当前系统是否识别 ffmpeg 以及查看 ffmpeg 的版本</p></li><li><p>运行pip install -r requirements.txt 来安装剩余的必要包。</p></li></ul><blockquote><p>确保本步骤不报错</p></blockquote><ul><li>安装 webrtcvad 用 pip install webrtcvad-wheels。</li></ul><blockquote><p>确保本步骤不报错</p></blockquote><p>3.下载社区训练好的模型</p><p>在以下选择中下载模型</p><table><thead><tr><th>作者</th><th>下载链接</th></tr></thead><tbody><tr><td>@miven</td><td><a href="https://pan.baidu.com/s/1PI-hM3sn5wbeChRryX-RCQ">百度网盘 请输入提取码</a>&nbsp;提取码：2021</td></tr></tbody></table><blockquote><p>该模型与最新代码有兼容性问题 请查阅&nbsp;<a href="https://github.com/babysor/MockingBird/issues/37">https://github.com/babysor/MockingBird/issues/37</a>&nbsp;解决</p></blockquote><p>下载完成后，确保&nbsp;<code>xxx.pt</code>&nbsp;格式的文件放在代码库的&nbsp;<code>synthesizer\saved_models</code>文件夹下，<code>saved_models</code>如不存在请新建</p><p>4.运行demo_toolbox</p><p>在代码库路径下，运行&nbsp;<code>python demo_toolbox.py -d .\samples</code>&nbsp;尝试使用工具箱, 由于没有下载任何数据集，这里的功能比较简单：</p><ol><li><p>确保界面左边中间的&nbsp;<code>synthesizer</code>&nbsp;选择了上一步中&nbsp;<code>xxx.pt</code>&nbsp;文件对应的模型。</p></li><li><p>点击<code>Record</code>录入你的5秒语音</p></li><li><p>输入任意文字</p></li><li><p>点击&nbsp;<code>Synthesizer and vocode</code>&nbsp;等待效果输出较简单：</p></li><li><p>确保界面左边中间的&nbsp;<code>synthesizer</code>&nbsp;选择了上一步中&nbsp;<code>xxx.pt</code>&nbsp;文件对应的模型。</p></li><li><p>点击<code>Record</code>录入你的5秒语音</p></li><li><p>输入任意文字</p></li><li><p>点击&nbsp;<code>Synthesizer and vocode</code>&nbsp;等待效果输出</p></li></ol><h1 id="5-遇到的问题总结"><a href="#5-遇到的问题总结" class="headerlink" title="5.遇到的问题总结"></a>5.遇到的问题总结</h1><p>1.元数据流报错:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在CSDN找到下面的方式无法解决问题。</p><pre><code>pip install setuptools==57.5.0 -i https://pypi.tuna.tsinghua.edu.cn/simple </code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在对比开源作者的文件时，发现作者main主支内容和本地文件不一致，在其他分支有完整的项目。</p><p>2.&nbsp;&nbsp;报错：</p><p>&nbsp;&nbsp;&nbsp;&nbsp; cpu硬件没有运行，以及文件的训练数据无法找到。</p><pre><code>Arguments:    datasets_root:    None    enc_models_dir:   encoder\saved_models    syn_models_dir:   synthesizer\saved_models    voc_models_dir:   vocoder\saved_models    cpu:              False    seed:             None    no_mp3_support:   FalseWarning: you did not pass a root directory for datasets as argument.The recognized datasets are:        LibriSpeech/dev-clean</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将 开发者提供的云盘资料下级文件全部导入该项目的主项目下，不用像作者要求的创建文件夹。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我自行创建文件夹同时将所有文件放在 /saved_models 下，反而导致文件的路径出错。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+          <category> GitHub-Openner </category>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python网页获取</title>
       <link href="/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/"/>
       <url>/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/</url>
