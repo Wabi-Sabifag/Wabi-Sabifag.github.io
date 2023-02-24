@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/02/23/Vue.js/</loc>
+    <lastmod>2023-02-24</lastmod>
+  </url>
+  <url>
     <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/05/jQuery-%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2023-02-09</lastmod>
+    <lastmod>2023-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/02/18/JavaEE/</loc>
+    <lastmod>2023-02-23</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/</loc>
+    <lastmod>2023-02-22</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/02/19/MPWeiXin/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/02/18/MyDiary/</loc>
+    <lastmod>2023-02-18</lastmod>
   </url>
   <url>
     <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2022/12/25/Java-the-best-langage-at-the-World/</loc>
-    <lastmod>2023-02-09</lastmod>
+    <lastmod>2023-02-10</lastmod>
   </url>
   <url>
     <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/02/BigData-%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1%E7%BC%96%E7%A8%8B/</loc>
@@ -18,10 +38,6 @@
   </url>
   <url>
     <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/02/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2023-02-06</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/01/24/Python%E7%BD%91%E9%A1%B5%E8%8E%B7%E5%8F%96/</loc>
     <lastmod>2023-02-06</lastmod>
   </url>
   <url>
