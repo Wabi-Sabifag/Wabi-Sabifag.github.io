@@ -1,0 +1,708 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Maven基础 | 当你抬头仰望星辰时，月辉亲昵双颊</title><meta name="author" content="Wabi-Sabifag"><meta name="copyright" content="Wabi-Sabifag"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="一、Maven项目结构pom.xml &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;  &lt;project       xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;      xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;      xsi:schemaL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven基础">
+<meta property="og:url" content="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/08/19/Maven/index.html">
+<meta property="og:site_name" content="当你抬头仰望星辰时，月辉亲昵双颊">
+<meta property="og:description" content="一、Maven项目结构pom.xml &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;  &lt;project       xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;      xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;      xsi:schemaL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/img/27.png">
+<meta property="article:published_time" content="2023-08-19T13:49:08.000Z">
+<meta property="article:modified_time" content="2023-08-19T14:41:41.656Z">
+<meta property="article:author" content="Wabi-Sabifag">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Maven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/img/27.png"><link rel="shortcut icon" href="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071"><link rel="canonical" href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/08/19/Maven/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":730,"position":"top","messagePrev":"该版本已经是","messageNext":"天前的内容，请你仔细辨别版本和其他问题😉"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Maven基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-19 22:41:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,300&display=swap" rel="stylesheet"><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="当你抬头仰望星辰时，月辉亲昵双颊" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="onerror=null;src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/27.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">当你抬头仰望星辰时，月辉亲昵双颊</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 殿首</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-moon"></i><span> 吾の博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-clock"></i><span> 故往尘飞、吾心犹然</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-earth"></i><span> 自然科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/nature/"><i class="fa-fw fas fa-sun"></i><span> 舒适の自然</span></a></li><li><a class="site-page child" href="/animal/"><i class="fa-fw fas fa-dog"></i><span> 可爱の动物</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-computer"></i><span> 社会科学</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/science/"><i class="fa-fw fas fa-ruler"></i><span> 理性科学</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-history"></i><span> 历史</span></a></li><li><a class="site-page child" href="/philosophy/"><i class="fa-fw fas fa-brain"></i><span> 哲学</span></a></li><li><a class="site-page child" href="/psychology/"><i class="fa-fw fas fa-heartbeat"></i><span> 心理</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 文学</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/hand/"><i class="fa-fw fas fa-hand"></i><span> 雕塑</span></a></li><li><a class="site-page child" href="/mask/"><i class="fa-fw fas fa-balance-scale"></i><span> 戏剧</span></a></li><li><a class="site-page child" href="/city/"><i class="fa-fw fas fa-city"></i><span> 建筑</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/sport/"><i class="fa-fw fas fa-basketball"></i><span> 体育</span></a></li><li><a class="site-page child" href="/hospital/"><i class="fa-fw fa fa-star"></i><span> 动漫</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-compass"></i><span> 其他信息</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> --关于--</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Maven基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-19T13:49:08.000Z" title="发表于 2023-08-19 21:49:08">2023-08-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-19T14:41:41.656Z" title="更新于 2023-08-19 22:41:41">2023-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/Maven/">Maven</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、Maven项目结构"><a href="#一、Maven项目结构" class="headerlink" title="一、Maven项目结构"></a>一、Maven项目结构</h1><p>pom.xml</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;project 
+
+    xmlns="http://maven.apache.org/POM/4.0.0"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+
+
+  &lt;groupId&gt;com&lt;/groupId&gt;
+
+  &lt;artifactId&gt;projext-java&lt;/artifactId&gt;
+
+  &lt;version&gt;1.0&lt;/version&gt;
+
+  &lt;packaging&gt;jar&lt;/packaging&gt;
+
+
+
+  &lt;dependencies&gt;
+
+    &lt;dependency&gt;
+
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+
+      &lt;version&gt;4.12&lt;/version&gt;
+
+      &lt;optional&gt;true&lt;/optional&gt;
+
+    &lt;/dependency&gt;
+
+  &lt;/dependencies&gt;
+
+
+&lt;/project&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="二、Maven项目构建"><a href="#二、Maven项目构建" class="headerlink" title="二、Maven项目构建"></a>二、Maven项目构建</h1><pre class="line-numbers language-none"><code class="language-none">mvn compile  	#下载插件到本地Maven创库，编译代码（第一次编译会多一个文件夹
+
+ 
+
+  clean		#清理
+
+  test			#测试，日志报告 ./target/surefire-reports/
+
+  package	#打包源文件为 .jar。执行以上命令。
+
+  install		#安装到本地的Maven仓库，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="三、Maven插件创建工程"><a href="#三、Maven插件创建工程" class="headerlink" title="三、Maven插件创建工程"></a>三、Maven插件创建工程</h1><pre class="line-numbers language-none"><code class="language-none">●创建工程（在空目录创建工程）
+
+mvn archetype: generate
+
+-DgroupId={project-packaging}
+
+-Dartifact Id=(project-name}
+
+-DarchetypeArtifactId=maven-archetype-quickstart
+
+-DinteractiveMode=false
+
+●创建java工程（缺少resources文件夹）
+
+mvn archetype:generate -DgroupId=com.itheima -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -Dversion=0.0.1-snapshot -DinteractiveMode=false
+
+●创建web工程（缺少java文件夹）
+
+mvn archetype:generate -DgroupId=com.itheima -DartifactId=web-project -
+
+DarchetypeArtifactId=maven-archetype-webapp -Dversion=0.0.1-snapshot -
+
+DinteractiveMode=false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="四、依赖管理"><a href="#四、依赖管理" class="headerlink" title="四、依赖管理"></a>四、依赖管理</h1><ol>
+<li><p>依赖传递</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--  依赖传递
+    1.路径优先，就近原则
+    2.声明优先，在相同层级被依赖时，先配置的生效
+    3.特殊优先，同级配置相同资源的版本，后置覆盖优先（依赖重复但是版本不同时
+     对子类不显示，不继承--&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;3.8.1&lt;/version&gt;
+      
+     &lt;!-- 对子类不显示，不继承--&gt;
+      &lt;optional&gt;true&lt;/optional&gt;
+
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>排除依赖</p>
+<pre class="line-numbers language-none"><code class="language-none">  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;3.8.1&lt;/version&gt;
+&lt;!--      对子类不显示，不继承--&gt;
+      &lt;optional&gt;true&lt;/optional&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+&lt;!--      主动排除依赖的资源--&gt;
+      &lt;exclusions&gt;
+        &lt;exclusion&gt;
+          &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+          &lt;artifactId&gt;hamcrest-core&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+      &lt;/exclusions&gt;
+      
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>依赖范围</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--      依赖范围
+        1.main文件夹范围
+        2，test测试程序范围
+        3.package指令范围
+
+         依赖范围模式
+        1.compile （ 1,2,3    例如：log4j
+        2.test    （ 2        例如：junit
+        3.provided（ 1,2      例如：servlet-api 服务器内置，打包会冲突
+        4.runtime （ 3        例如：jdbc
+        --&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>依赖范围传递性</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--      依赖范围的传递性
+        1.compile，runtime可传递
+        2.test，provided不可传递
+--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="五、生命周期与插件"><a href="#五、生命周期与插件" class="headerlink" title="五、生命周期与插件"></a>五、生命周期与插件</h1><p>1.clean<br><img src="https://i0.hdslb.com/bfs/note/2c50693e7574092f9a598d4df1132eedd4554091.png@690w_!web-note.webp"><br>2.default<br><img src="https://i0.hdslb.com/bfs/note/8fbedc3a84f61ba2a433f659830e00f9579921ef.png@690w_!web-note.webp"><br>3.site<br><img src="https://i0.hdslb.com/bfs/note/53fa6baa7a440f73f1b770a998da01946c7efe42.png@690w_!web-note.webp"><br>4.生命周期在插件中的应用</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--  构建--&gt;
+  &lt;build&gt;
+    &lt;finalName&gt;WabiSabifag_Web&lt;/finalName&gt;
+&lt;!--    插件--&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+          &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.1&lt;/version&gt;
+
+&lt;!--      生命周期和插件--&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;goals&gt;
+
+&lt;!--       打包为 jar --&gt;
+              &lt;goal&gt;jar&lt;/goal&gt;
+            &lt;/goals&gt;
+
+&lt;!--        在该过程时将执行--&gt;
+            &lt;phase&gt;generate-test-resources&lt;/phase&gt;
+
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+
+
+&lt;!--        配置--&gt;
+        &lt;configuration&gt;
+&lt;!--          端口--&gt;
+          &lt;port&gt;8080&lt;/port&gt;
+&lt;!--          路径--&gt;
+          &lt;path&gt;/&lt;/path&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="六、聚合-和-继承"><a href="#六、聚合-和-继承" class="headerlink" title="六、聚合 和 继承"></a>六、聚合 和 继承</h1><h2 id="聚合-例图"><a href="#聚合-例图" class="headerlink" title="聚合  例图"></a>聚合  例图</h2><p><img src="https://i0.hdslb.com/bfs/note/9c1095b687bf1ae1def40add8a1d57c322435a10.png@690w_!web-note.webp"></p>
+<h2 id="继承-例图"><a href="#继承-例图" class="headerlink" title="继承  例图"></a>继承  例图</h2><p><img src="https://i0.hdslb.com/bfs/note/05274c043f085e982e5f86e7823cd4432a7861c9.png@690w_!web-note.webp"><br><img src="https://i0.hdslb.com/bfs/note/1bc3fa7df64b69700e365da750dcc9bf652bbad8.png@690w_!web-note.webp"></p>
+<p>单独创建mss模块，仅pom.xml一个子文件。</p>
+<pre class="line-numbers language-none"><code class="language-none">聚合：
+在文件中使用：&lt;packaging&gt;pom&lt;/packaging&gt; . 声明为结构管理。
+使用：&lt;modules&gt;
+        &lt;module&gt;    &lt;/module&gt;
+    &lt;/modules&gt;
+管理文件（顺序会自编译，不用担心）
+
+
+继承：
+通过 依赖管理 和 插件管理 的方式 统一控制版本
+&lt;!--依赖管理--&gt;
+&lt;dependencyManagement&gt;
+
+    &lt;dependencies&gt;
+        &lt;!--自定义依赖--&gt;
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_pojo&lt;/artifactId&gt;
+               &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+           &lt;/dependency&gt;
+
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_dao&lt;/artifactId&gt;
+               &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+           &lt;/dependency&gt;
+
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_service&lt;/artifactId&gt;
+               &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+           &lt;/dependency&gt;
+
+        &lt;!-- Maven包资源的版本--&gt;
+           &lt;dependency&gt;
+               &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+               &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+               &lt;version&gt;5.1.9.RELEASE&lt;/version&gt;
+           &lt;/dependency&gt;
+
+&lt;/dependencyManagement&gt;
+
+  &lt;!--插件管理--&gt;
+  &lt;build&gt;
+      &lt;pluginManagement&gt;
+          &lt;plugins&gt;
+              &lt;plugin&gt;
+                  &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+                  &lt;artifactId&gt;common-tomcat-maven-plugin&lt;/artifactId&gt;
+                  &lt;version&gt;2.1&lt;/version&gt;
+                  &lt;configuration&gt;
+                      &lt;path&gt;/&lt;/path&gt;
+                  &lt;/configuration&gt;
+              &lt;/plugin&gt;
+          &lt;/plugins&gt;
+      &lt;/pluginManagement&gt;
+  &lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="八、属性"><a href="#八、属性" class="headerlink" title="八、属性"></a>八、属性</h1><pre class="line-numbers language-none"><code class="language-none">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+    &lt;artifactId&gt;ssm&lt;/artifactId&gt;'
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;!-- 进行构建管理--&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+
+    &lt;modules&gt;
+        &lt;module&gt;../ssm_controller&lt;/module&gt;
+        &lt;module&gt;../ssm_service&lt;/module&gt;
+        &lt;module&gt;../ssm_dao&lt;/module&gt;
+        &lt;module&gt;../ssm_pojo&lt;/module&gt;
+    &lt;/modules&gt;
+
+
+    &lt;!--定义自定义属性 --&gt;
+    &lt;properties&gt;
+        &lt;spring.version&gt;5.1.9.RELEASE&lt;/spring.version&gt;
+    &lt;/properties&gt;
+
+    &lt;!--依赖管理--&gt;
+   &lt;dependencyManagement&gt;
+       &lt;dependencies&gt;
+
+        &lt;!-- 自定义依赖--&gt;
+           原型：
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_pojo&lt;/artifactId&gt;
+               &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+           &lt;/dependency&gt;
+           设置自定义版本号（内置属性）：
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_dao&lt;/artifactId&gt;
+               &lt;version&gt;${version}&lt;/version&gt;
+           &lt;/dependency&gt;
+
+           &lt;dependency&gt;
+               &lt;groupId&gt;top.wabisabifag&lt;/groupId&gt;
+               &lt;artifactId&gt;ssm_service&lt;/artifactId&gt;
+            &lt;!-- 直接调用 ssm 自身的属性值（版本号，内置的属性值--&gt;
+               &lt;version&gt;${version}&lt;/version&gt;
+           &lt;/dependency&gt;
+           
+           &lt;dependency&gt;
+               &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+               &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+               &lt;version&gt;${spring.version}&lt;/version&gt;
+           &lt;/dependency&gt;
+
+           
+       &lt;!-- Setting 属性--&gt;    
+           &lt;!-- 使用Maven配置文件setting.xml中标签属性，用于动态配置--&gt;
+           调用格式：
+           ${settings.localRepository}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ol>
+<li><p>自定义属性（<properties>）：中可设置标签（如：Spring.version在标签内赋值版本号，通过:${ } 在具体依赖文件内传自定义的值 ）</properties></p>
+</li>
+<li><p>内置属性：ssm文件自身 属性（版本号）通过 ￥{version}直接调用  1.0-SHAPSHOT</p>
+</li>
+<li><p>Setting属性：</p>
+<p> 查询方式：</p>
+<pre><code> CMD命令行： mvn help:system
+</code></pre>
+</li>
+</ol>
+<h1 id="九、多环境-和-测试跳过"><a href="#九、多环境-和-测试跳过" class="headerlink" title="九、多环境 和 测试跳过"></a>九、多环境 和 测试跳过</h1><p>···</p>
+<!--创建多环境  -->
+<p>&lt;\profiles&gt;   <!-- 和dependencyManagement 同级别 --></p>
+<pre><code>&lt;!-- 生产环境--&gt;
+&lt;profile&gt;
+    &lt;!--测试跳过: 声明唯一名称--&gt;
+    &lt;id&gt;pro_env&lt;/id&gt;
+
+    &lt;properties&gt;
+        &lt;!--引用 ../resource/jdbc.properties 文件 --&gt;
+        &lt;jdbc.url&gt;jdbc:mysql://127.0.0.1:3306/ssm_db&lt;/jdbc.url&gt;
+        &lt;jdbc.username&gt;root&lt;/jdbc.username&gt;
+        &lt;jdbc.password&gt;123456&lt;/jdbc.password&gt;
+    &lt;/properties&gt;
+
+
+    &lt;!-- 测试跳过: 设置默认启动 --&gt;
+    &lt;activation&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+    &lt;/activation&gt;
+
+&lt;/profile&gt;
+
+
+&lt;!--开发环境--&gt;
+&lt;profile&gt;
+    &lt;!--测试跳过: 声明唯一名称--&gt;
+    &lt;id&gt;dep_env&lt;/id&gt;
+    &lt;properties&gt;
+        &lt;jdbc.url&gt;jdbc:mysql://127.0.0.1:3306/ssm_db&lt;/jdbc.url&gt;
+        &lt;jdbc.username&gt;root&lt;/jdbc.username&gt;
+        &lt;jdbc.password&gt;123456&lt;/jdbc.password&gt;
+    &lt;/properties&gt;
+&lt;/profile&gt;
+</code></pre>
+<p>&lt;/profiles&gt;<br>···</p>
+<pre class="line-numbers language-none"><code class="language-none"># ../resource/jdbc.properties 文件
+jdbc.driver = com.mysql.jdbc.Driver
+jdbc.url = ${jdbc.url}
+jdbc.username = ${jdbc.username}
+jdbc.password = ${jdbc.password}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;build&gt;
+&lt;!--   配置资源文件对应的信息--&gt;
+        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;${project.basedir}/src/main/resources&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;
+
+&lt;!--   配置测试资源文件对应的信息--&gt;
+        &lt;testResources&gt;
+            &lt;testResource&gt;
+            &lt;!--  支持使用属性动态设定路径--&gt;
+                &lt;directory&gt;${project.basedir}/src/test/resources&lt;/directory&gt;
+            &lt;!--  开启对配置文件的资源加载过滤--&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+            &lt;/testResource&gt;
+        &lt;/testResources&gt;
+&lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>上文使用的跳过测试的一种，跳过测试用于对需求功能的跳过运行，不建议使用。</p>
+<p>下面还有两种跳过测试的方式：</p>
+<pre class="line-numbers language-none"><code class="language-none">   &lt;build&gt;
+        &lt;pluginManagement&gt;
+            &lt;plugins&gt;
+
+&lt;!--                 跳过测试插件--&gt;
+&lt;!--                   命令行:  mvn [install] -D skipTests--&gt;
+
+               &lt;plugin&gt;
+                    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                    &lt;version&gt;2.*&lt;/version&gt;
+                    &lt;configuration&gt;
+
+            &lt;!-- 1.全部跳过--&gt;
+                        &lt;skipTests&gt;true&lt;/skipTests&gt;
+
+            &lt;!-- 2.指定跳过--&gt;
+                     &lt;!-- 1.包含一定文件跳过--&gt;
+                        &lt;includes&gt;
+                            &lt;include&gt;**/UserServiceTest.java&lt;/include&gt;
+                        &lt;/includes&gt;
+                     &lt;!-- 2.排除一定文件跳过跳过--&gt;
+                        &lt;excludes&gt;
+                            &lt;exclude&gt;&lt;/exclude&gt;
+                        &lt;/excludes&gt;
+                    &lt;/configuration&gt;
+                    
+                &lt;/plugin&gt;
+ 
+            &lt;/plugins&gt;
+        &lt;/pluginManagement&gt;
+&lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="十、Nexus"><a href="#十、Nexus" class="headerlink" title="十、Nexus"></a>十、Nexus</h1><ol>
+<li><p>部署Nexus</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--发布配置管理--&gt;
+     
+ &lt;!-- 点击  nexus.exe 无反应，在当前文件夹的命令行窗口执行
+       命令行: nexus /run nexus  
+       经提示获取 admin 的 文件中 长随机密码
+       
+       创建 Maven 2 host 的库
+       进入Maven 的 ../conf/setting.xml  - 124行 
+          对&lt;services&gt;  和 &lt;mirrors&gt; 进行设置 
+       例）--&gt;
+          &lt;server&gt;
+         &lt;id&gt;wabisabifag-release&lt;/id&gt;
+         &lt;username&gt;admin&lt;/username&gt;
+         &lt;password&gt;love1314&lt;/password&gt;
+       &lt;/server&gt;
+
+        &lt;server&gt;
+         &lt;id&gt;wabisabifag-snapshot&lt;/id&gt;
+         &lt;username&gt;admin&lt;/username&gt;
+         &lt;password&gt;love1314&lt;/password&gt;
+       &lt;/server&gt;
+      
+
+       &lt;mirror&gt;
+       &lt;id&gt;nexus-wabisabifag&lt;/id&gt;
+       &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+       &lt;name&gt;wabisabifag maven&lt;/name&gt;
+       &lt;url&gt;http://localhost:8081/repository/maven-public/&lt;/url&gt;
+     &lt;/mirror&gt;
+     
+     将setting文件保存，拷贝覆盖 Maven本地仓库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+<li><p>pom.xml</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;distributionManagement&gt;
+  &lt;!-- Setting 文件夹的链接地址和信息--&gt;
+    &lt;repository&gt;
+        &lt;id&gt;wabisabifag-release&lt;/id&gt;
+        &lt;url&gt;http://localhost:8081/repository/wabisabifag-relwase/&lt;/url&gt;
+    &lt;/repository&gt;
+    
+    &lt;snapshotRepository&gt;
+        &lt;id&gt;wabisabifag-snapshots&lt;/id&gt;
+        &lt;url&gt;http://localhost:8081/repository/wabisabifag-snapshot/&lt;/url&gt;
+    &lt;/snapshotRepository&gt;
+    
+&lt;/distributionManagement&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io">Wabi-Sabifag</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/08/19/Maven/">https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io/2023/08/19/Maven/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/Wabi-Sabifag/Wabi-Sabifag.github.io" target="_blank">当你抬头仰望星辰时，月辉亲昵双颊</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/Maven/">Maven</a></div><div class="post_share"><div class="social-share" data-image="/img/27.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><a href="/./img/Wabi-Sabifag.jpg" target="_blank"><img class="post-qr-code-img" src="/./img/Wabi-Sabifag.jpg" alt="BiliBili"/></a><div class="post-qr-code-desc">BiliBili</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/01/SoftWareTest/"><img class="next-cover" src="/img/15.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SoftWareTest</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/12/25/Java-the-best-langage-at-the-World/" title="Java, the world&#39;s best programming language"><img class="cover" src="/img/23.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-25</div><div class="title">Java, the world&#39;s best programming language</div></div></a></div><div><a href="/2023/02/18/JavaEE/" title="JavaEE"><img class="cover" src="/img/22.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-18</div><div class="title">JavaEE</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071" onerror="this.onerror=null;this.src='https://safebooru.org//samples/3404/sample_2d70be5f0453c31b5e9ad641db7cf3fb90ba2c23.jpg?3541071'" alt="avatar"/></div><div class="author-info__name">Wabi-Sabifag</div><div class="author-info__description">当残风不再，当石烂海竭，我迟迟归场</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/364309102"><i class="fab fa-github"></i><span>我的兴趣都在这里</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wabi-Sabifag" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_61109834" rel="external nofollow noreferrer" target="_blank" title="CSDN"><i class="fab fa-contao"></i></a><a class="social-icon" href="https://space.bilibili.com/364309102" rel="external nofollow noreferrer" target="_blank" title="BiliBli"><i class="fa fa-bold"></i></a><a class="social-icon" href="mailto:1109388794@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">世界上的事我不可一饮而尽，唯愿至死依然热爱而真切的活着、目睹经途的千万。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Maven%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一、Maven项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Maven%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="toc-text">二、Maven项目构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81Maven%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-text">三、Maven插件创建工程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="toc-text">四、依赖管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8E%E6%8F%92%E4%BB%B6"><span class="toc-text">五、生命周期与插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%81%9A%E5%90%88-%E5%92%8C-%E7%BB%A7%E6%89%BF"><span class="toc-text">六、聚合 和 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E5%90%88-%E4%BE%8B%E5%9B%BE"><span class="toc-text">聚合  例图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF-%E4%BE%8B%E5%9B%BE"><span class="toc-text">继承  例图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%B1%9E%E6%80%A7"><span class="toc-text">八、属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%A4%9A%E7%8E%AF%E5%A2%83-%E5%92%8C-%E6%B5%8B%E8%AF%95%E8%B7%B3%E8%BF%87"><span class="toc-text">九、多环境 和 测试跳过</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81Nexus"><span class="toc-text">十、Nexus</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/19/Maven/" title="Maven基础"><img src="/img/27.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Maven基础"/></a><div class="content"><a class="title" href="/2023/08/19/Maven/" title="Maven基础">Maven基础</a><time datetime="2023-08-19T13:49:08.000Z" title="发表于 2023-08-19 21:49:08">2023-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/01/SoftWareTest/" title="SoftWareTest"><img src="/img/15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SoftWareTest"/></a><div class="content"><a class="title" href="/2023/03/01/SoftWareTest/" title="SoftWareTest">SoftWareTest</a><time datetime="2023-03-01T01:40:17.000Z" title="发表于 2023-03-01 09:40:17">2023-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/23/Vue.js/" title="Vue.js"><img src="/img/15.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue.js"/></a><div class="content"><a class="title" href="/2023/02/23/Vue.js/" title="Vue.js">Vue.js</a><time datetime="2023-02-23T04:14:11.000Z" title="发表于 2023-02-23 12:14:11">2023-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/19/MPWeiXin/" title="MPWeiXin"><img src="/img/11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MPWeiXin"/></a><div class="content"><a class="title" href="/2023/02/19/MPWeiXin/" title="MPWeiXin">MPWeiXin</a><time datetime="2023-02-19T04:22:38.000Z" title="发表于 2023-02-19 12:22:38">2023-02-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/18/JavaEE/" title="JavaEE"><img src="/img/22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaEE"/></a><div class="content"><a class="title" href="/2023/02/18/JavaEE/" title="JavaEE">JavaEE</a><time datetime="2023-02-18T05:02:38.000Z" title="发表于 2023-02-18 13:02:38">2023-02-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Wabi-Sabifag</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><div><a onclick="window.open('https://bilibili.com')"><img src=''>湖公网安备 </a></div> <div>当内心一片虚无的时刻，我将心脏埋入这无尽的土壤</div>  <div>理想主义 现实主义 实用主义</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" date-type="playlist" data-fixed="true" data-autoplay="true"></div><link rel="stylesheet" href="css/style.css"><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
